@@ -21,14 +21,9 @@ app.get('/render', (req, res) => {
         if (req.query.new) {
             var cached_src = '';
             request('http://localhost:3000/render/' + url, {json: false}, (err, res2, body) => {
-                var rendered = body;
-                if (rendered) {
-                    cached_src = rendered;
-                    res.send(cached_src);
-                    save(cached_src, url);
-                } else {
-                    res.json({error: 'Error with url'});
-                }
+                cached_src = body;
+                res.send(cached_src);
+                save(cached_src, url);
             });
             return;
         }
@@ -36,14 +31,9 @@ app.get('/render', (req, res) => {
             if (err) {
                 var cached_src = '';
                 request('http://localhost:3000/render/' + url, {json: false}, (err, res2, body) => {
-                    var rendered = body;
-                    if (rendered) {
-                        cached_src = rendered;
-                        res.send(cached_src);
-                        save(cached_src, url);
-                    } else {
-                        res.json({error: 'Error with url'});
-                    }
+                    cached_src = body;
+                    res.send(cached_src);
+                    save(cached_src, url);
                 });
             }
 
@@ -52,14 +42,9 @@ app.get('/render', (req, res) => {
             } else {
                 var cached_src = '';
                 request('http://localhost:3000/render/' + url, {json: false}, (err, res2, body) => {
-                    var rendered = body;
-                    if (rendered) {
-                        cached_src = rendered;
-                        res.send(cached_src);
-                        save(cached_src, url);
-                    } else {
-                        res.json({error: 'Error with url'});
-                    }
+                    cached_src = body;
+                    res.send(cached_src);
+                    save(cached_src, url);
                 });
 
             }
